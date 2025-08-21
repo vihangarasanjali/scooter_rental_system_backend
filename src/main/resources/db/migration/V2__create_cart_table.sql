@@ -1,0 +1,5 @@
+CREATE TABLE carts
+(
+    id BINARY(16) NOT NULL PRIMARY KEY,
+    date_created DATE DEFAULT (CURRENT_DATE) NOT NULL
+);
