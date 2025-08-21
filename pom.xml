@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.vihanga</groupId>
-	<artifactId>server</artifactId>
+	<artifactId>store</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>server</name>
-	<description>server</description>
+	<name>store</name>
+	<description>store</description>
 	<url/>
 	<licenses>
 		<license/>
