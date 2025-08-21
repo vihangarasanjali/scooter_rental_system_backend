@@ -1,4 +1,7 @@
 package com.codewithvihanga.store.repository;
 
-public interface UserRepository extends org.springframework.data.jpa.repository.JpaRepository<com.codewithvihanga.store.entities.User, java.lang.Long> {
-  }
+import com.codewithvihanga.store.entities.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+}
