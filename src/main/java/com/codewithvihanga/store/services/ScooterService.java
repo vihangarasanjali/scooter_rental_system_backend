@@ -5,7 +5,7 @@ import com.codewithvihanga.store.repository.ScooterRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import java.util.List;
 import java.util.Optional;

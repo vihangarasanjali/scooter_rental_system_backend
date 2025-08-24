@@ -1,10 +1,9 @@
 package com.codewithvihanga.store.controllers;
 
-import com.codewithvihanga.store.controllers.ScooterController;
+
 import com.codewithvihanga.store.dtos.ScooterDto;
 import com.codewithvihanga.store.entities.Scooter;
 import com.codewithvihanga.store.mappers.ScooterMapper;
-import com.codewithvihanga.store.repository.ScooterRepository;
 import com.codewithvihanga.store.services.ScooterService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
