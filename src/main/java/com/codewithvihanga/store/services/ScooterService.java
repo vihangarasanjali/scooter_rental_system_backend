@@ -3,7 +3,9 @@ package com.codewithvihanga.store.services;
 import com.codewithvihanga.store.entities.Scooter;
 import com.codewithvihanga.store.repository.ScooterRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,8 +17,8 @@ public class ScooterService {
     private final ScooterRepository scooterRepository;
 
     // Get all scooters
-    public List<Scooter> getAllScooters() {
-        return scooterRepository.findAll();
+    public List<Scooter> getAllScooters(String sort) {
+        return scooterRepository.findAll(Sort.by(sort));
     }
 
     // Get scooter by ID

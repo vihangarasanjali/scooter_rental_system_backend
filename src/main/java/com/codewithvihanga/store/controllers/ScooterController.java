@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -21,8 +22,12 @@ public class ScooterController {
     private final ScooterMapper scooterMapper;
 
     @GetMapping
-    public List<ScooterDto> getAllScooters() {
-        return scooterService.getAllScooters()
+    public List<ScooterDto> getAllScooters(
+        @RequestParam(required = false,defaultValue = "", name="sort") String sort
+    ) {
+        if(!Set.of("model", "description").contains(sort))
+            sort = "model";
+        return scooterService.getAllScooters(sort)
                 .stream()
                 .map(scooterMapper::toDto)
                 .toList();
