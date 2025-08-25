@@ -4,7 +4,6 @@ import com.codewithvihanga.store.dtos.ChangePasswordDto;
 import com.codewithvihanga.store.dtos.RegisterUserDto;
 import com.codewithvihanga.store.dtos.UpdateUserDto;
 import com.codewithvihanga.store.dtos.UserDto;
-import com.codewithvihanga.store.entities.User;
 import com.codewithvihanga.store.mappers.UserMapper;
 import com.codewithvihanga.store.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -13,8 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
-import java.util.List;
 import java.util.Set;
 
 @RestController
