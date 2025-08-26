@@ -6,12 +6,16 @@ import com.codewithvihanga.store.dtos.UpdateUserDto;
 import com.codewithvihanga.store.dtos.UserDto;
 import com.codewithvihanga.store.mappers.UserMapper;
 import com.codewithvihanga.store.repository.UserRepository;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 @RestController
@@ -44,9 +48,16 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> createUser(
-            @RequestBody RegisterUserDto request,
+    public ResponseEntity<?> registerUser(
+            //with @Validate if we send an invalid object to this endpoint we get an error
+            @Valid @RequestBody RegisterUserDto request,
             UriComponentsBuilder uriBuilder) {
+        if(userRepository.existsByEmail(request.getEmail())){
+            return ResponseEntity.badRequest().body(
+                    Map.of("email","Email is already registered.")
+            );
+        }
+
         var user = userMapper.toEntity(request);
         userRepository.save(user);
 
@@ -93,5 +104,10 @@ public class UserController {
         return ResponseEntity.noContent().build();
 
     }
+
+    //If we handle all exceptions
+//    @ExceptionHandler(Exception.class)
+
+    //if we handle a specific type of exception
 
 }
