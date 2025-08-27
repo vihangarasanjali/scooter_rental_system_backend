@@ -13,7 +13,6 @@ import java.time.Instant;
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -22,19 +21,18 @@ public class Booking {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "room_id")
-    private Room room;
+    private Room room;   // optional
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "scooter_id")
-    private Scooter scooter;
+    private Scooter scooter;  // optional
 
     @Column(name = "start_datetime", nullable = false)
-    private Instant LocalDatetime;
+    private Instant startDatetime;
 
     @Column(name = "end_datetime", nullable = false)
     private Instant endDatetime;
 
     @Column(name = "total_price", nullable = false)
     private Double totalPrice;
-
 }
