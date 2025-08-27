@@ -33,7 +33,8 @@ public class Room {
 
     @ColumnDefault("1")
     @Column(name = "available")
-    private Boolean available;
+    private Boolean available = true;
+
 
     @OneToMany(mappedBy = "room")
     private Set<Booking> bookings = new LinkedHashSet<>();

@@ -29,7 +29,7 @@ public class Booking {
     private Scooter scooter;
 
     @Column(name = "start_datetime", nullable = false)
-    private Instant startDatetime;
+    private Instant LocalDatetime;
 
     @Column(name = "end_datetime", nullable = false)
     private Instant endDatetime;
