@@ -71,6 +71,12 @@ public class AuthController {
         return ResponseEntity.ok(new JwtResponse(accessToken));
     }
 
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout() {
+        // No server-side session to invalidate for stateless JWT
+        return ResponseEntity.ok("Logged out successfully");
+    }
+
 //    @PostMapping("/validate")
 //    public boolean validate(@RequestHeader("Authorization") String authHeader) {
 //        System.out.println("Validate called");
