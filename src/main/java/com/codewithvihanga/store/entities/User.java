@@ -29,10 +29,12 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+
+
     @ColumnDefault("'GUEST'")
-    @Lob
+    @Enumerated(EnumType.STRING)//We are telling spring to store this value as a string in our database
     @Column(name = "role")
-    private String role;
+    private Role role;
 
     @OneToMany(mappedBy = "user")
     private Set<Booking> bookings = new LinkedHashSet<>();
