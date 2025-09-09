@@ -4,6 +4,7 @@ import com.codewithvihanga.store.dtos.ChangePasswordDto;
 import com.codewithvihanga.store.dtos.RegisterUserDto;
 import com.codewithvihanga.store.dtos.UpdateUserDto;
 import com.codewithvihanga.store.dtos.UserDto;
+import com.codewithvihanga.store.entities.Role;
 import com.codewithvihanga.store.mappers.UserMapper;
 import com.codewithvihanga.store.repository.UserRepository;
 import jakarta.validation.Valid;
@@ -62,6 +63,7 @@ public class UserController {
 
         var user = userMapper.toEntity(request);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(Role.GUEST);
         userRepository.save(user);
 
         var userDto = userMapper.toDto(user);

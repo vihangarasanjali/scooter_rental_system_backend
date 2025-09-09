@@ -71,18 +71,18 @@ public class AuthController {
         return ResponseEntity.ok(new JwtResponse(accessToken));
     }
 
-    @PostMapping("/validate")
-    public boolean validate(@RequestHeader("Authorization") String authHeader) {
-        System.out.println("Validate called");
-
-        var token =authHeader.replace("Bearer " , "");//"Bearer"
-        return jwtService.validateToken(token);
-    }
-
-    @ExceptionHandler(BadCredentialsException.class)
-    public ResponseEntity<Void> handleBadCredentialsException() {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-    }
+//    @PostMapping("/validate")
+//    public boolean validate(@RequestHeader("Authorization") String authHeader) {
+//        System.out.println("Validate called");
+//
+//        var token =authHeader.replace("Bearer " , "");//"Bearer"
+//        return jwtService.validateToken(token);
+//    }
+//
+//    @ExceptionHandler(BadCredentialsException.class)
+//    public ResponseEntity<Void> handleBadCredentialsException() {
+//        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+//    }
 
     @PostMapping("/refresh")
     public ResponseEntity<JwtResponse> refresh(
